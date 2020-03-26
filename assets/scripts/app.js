@@ -106,6 +106,7 @@ class Shop {
 class App {
     static init() {
         const shop = new Shop();
+        // const { cart } = shop;
         shop.render();
         this.cart = shop.cart;
     }
