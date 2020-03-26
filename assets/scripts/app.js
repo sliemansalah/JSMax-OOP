@@ -1,33 +1,44 @@
+class Product {
+    title = 'Default';
+    imageUrl;
+    description;
+    price;
 
-
+    constructor(title, image, desc, price) {
+        this.title = title;
+        this.imageUrl = image;
+        this.description = desc;
+        this.price = price;
+    }
+}
 const productList = {
-     products: [
-        {
-        title: 'A Pillow',
-        imageUrl: 'https://thumb.maxpixel.net/50/Bedtime-Bedroom-Comfortable-Sleep-Pillow-Dream-1738023.jpg',
-        price: 19.99,
-        description: 'A soft pillow!'
-    },
-    {
-        title: 'A Carpet',
-        imageUrl: 'https://thumb.maxpixel.net/106/Housework-Carpet-Cleaner-Vacuum-Cleaner-Housekeeping-657719.jpg',
-        price: 89.99,
-        description: 'A carpet which you might like - or not!'
-    },
-    {
-        title: 'A Car',
-        imageUrl: 'https://thumb.maxpixel.net/1/Gt-Car-Power-Ford-Speed-Auto-Race-Supercar-1376190.jpg',
-        price: 150.28,
-        description: 'This is a car'
-    },
+    products: [
+        new Product(
+            'A Pillow',
+            'https://thumb.maxpixel.net/50/Bedtime-Bedroom-Comfortable-Sleep-Pillow-Dream-1738023.jpg',
+            19.99,
+            'A soft pillow'
+        ),
+        new Product(
+            'A Carpet',
+            'https://thumb.maxpixel.net/106/Housework-Carpet-Cleaner-Vacuum-Cleaner-Housekeeping-657719.jpg',
+            89.99,
+            'A carpet which you might like - or not!'
+        ),
+        new Product(
+            'A Car',
+            'https://thumb.maxpixel.net/1/Gt-Car-Power-Ford-Speed-Auto-Race-Supercar-1376190.jpg',
+            150.28,
+            'This is a car'
+        )
     ],
     render() {
         const renderHook = document.getElementById('app');
         const prodList = document.createElement('ul');
-        prodList.className ='product-list';
-        for(const prod of this.products){
+        prodList.className = 'product-list';
+        for (const prod of this.products) {
             const prodEl = document.createElement('li');
-            prodEl.className='product-item';
+            prodEl.className = 'product-item';
             prodEl.innerHTML = `
             <div>
             <img src="${prod.imageUrl}" alt="${prod.title}">
