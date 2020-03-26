@@ -16,7 +16,6 @@ class ElementAttribute {
 
 class Component {
     constructor(renderHookId) {
-        console.log('called');
         this.hookId = renderHookId;
     }
 
@@ -50,6 +49,7 @@ class ShoppingCart extends Component {
         );
         return sum;
     }
+
     constructor(renderHookId) {
         super(renderHookId);
     }
@@ -61,13 +61,12 @@ class ShoppingCart extends Component {
     }
 
     render() {
-        const cartEl= this.createRootElement('section','cart');
+        const cartEl = this.createRootElement('section', 'cart');
         cartEl.innerHTML = `
         <h2>Total: \$${0}</h2>
         <button>Order Now!</button>
       `;
         this.totalOutput = cartEl.querySelector('h2');
-        return cartEl;
     }
 }
 
@@ -142,11 +141,9 @@ class Shop {
 
         this.cart = new ShoppingCart('app');
         this.cart.render();
-        const cartEl = this.cart.render();
         const productList = new ProductList();
         const prodListEl = productList.render();
 
-        renderHook.append(cartEl);
         renderHook.append(prodListEl);
     }
 }
